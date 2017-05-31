@@ -1,0 +1,48 @@
+[user]
+	name = Chung Tang
+	email = ctang67@yahoo.com
+[core]
+	editor = vim
+	pager = cat
+	fileMode = false
+	autocrlf = input
+[diff]
+	tool = bc3
+[alias]
+	alias = config --get-regexp alias
+	a = !git add . && git status
+	aa = !git add . && git add -u && git status
+	au = !git add -u && git status
+	amend = commit -a --amend
+	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
+	bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+	btree = "log --graph --date=short --decorate=short --tags --pretty=\"\t%C(yellow)%h  %C(red)%ad  %C(reset)%s%C(green)%d%C(reset)\""
+	co = checkout
+	cob = checkout -b
+	ci = commit
+	cm = !git add -A && git commit -m
+  ctags = !.git/hooks/ctags
+	d = diff --stat
+	ec = config --global -e
+	enabled = true
+	format-patch = format-patch --stat=100,60 [rerere]
+	gtopo = !git topo | vim \"-c set filetype=xterm\" -&
+	gtree = !git tree | vim \"-c set filetype=xterm\" -&
+	ll = log --stat --abbrev-commit
+	refresh = !git rm --cached -r . && git reset --hard
+	s = status
+	save = !git add -A && git commit -m 'SAVEPOINT'
+	topo = !git tree --simplify-by-decoration
+	tree = "log --graph --date=short --decorate=short --branches --tags --pretty=\"\t%C(yellow)%h  %C(red)%ad  %C(reset)%s%C(green)%d%C(reset)\""
+	undo = reset HEAD~1 --mixed
+	wip = !git add -u && git commit -m "WIP"
+	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[push]
+	default = simple
+[init]
+	templatedir = ~/.git_template
