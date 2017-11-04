@@ -119,7 +119,8 @@ set modeline
 set nostartofline
 
 " Quickly time out on keycodes, but never time out on mappings
-set notimeout ttimeout ttimeoutlen=200
+"set notimeout ttimeout ttimeoutlen=200
+set timeoutlen=200 ttimeoutlen=200
 
 " Do not wrap text that flows off the screen
 set nowrap
