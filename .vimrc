@@ -146,6 +146,8 @@ set t_vb=
 " Use visual bell instead of beeping when doing something wrong
 set visualbell
 
+" Disable window's alt keys
+set winaltkeys=no
 
 "------------------------------------------------------------
 " Vim options {{{1
@@ -252,7 +254,7 @@ autocmd InsertEnter,FocusLost,WinLeave * :set norelativenumber
 autocmd InsertLeave,FocusGained,WinEnter * :set relativenumber
 
 " Related to sessions
-au VimLeave * :mksession! ~/LastVimSession.vim
+au VimLeave * :mksession! ~/.vimfiles/LastVimSession.vim
 au BufRead LastVimSession.vim so %
 
 " Turn on spell-checking for git commands
@@ -263,9 +265,9 @@ au FileType gitcommit set spell
 " Backup options {{{1
 "
 " Backup, undo, and swap directory locations
-set backupdir=~/vimfiles/backup
-set undodir=~/vimfiles/undo
-set directory=~/vimfiles/swp
+set backupdir=~/.vimfiles/backup
+set undodir=~/.vimfiles/undo
+set directory=~/.vimfiles/swp
 
 " Configure viminfo
 set viminfo+=n~/.viminfo
@@ -453,7 +455,7 @@ map <leader>.H   :split %:r.h<CR>
 map <leader>.M   :split %:r.m<CR>
 map <leader>.P   :split %:r.cpp<CR>
 
-map <leader>rs   :e ~/LastVimSession.vim<CR>
+map <leader>rs   :e ~/.vimfiles/LastVimSession.vim<CR>
 map <leader>td   :tabdo windo diffthis<CR>
 map <leader>tr   :!transpose<CR>
 map <leader>wd   :windo diffthis<CR>
@@ -467,6 +469,7 @@ map <F11> :set   list   number conceallevel=0 guioptions+=r<CR>
 "" Style {{{1
 "
 "" Style settings
+colorscheme slate
 
 hi Folded     term=underline guibg=#e0e0e0 ctermbg=white
 hi FoldColumn term=underline guibg=#e0e0e0 ctermbg=white
@@ -479,10 +482,10 @@ hi FoldColumn  term=underline ctermbg=white guibg=#e8e8e8 guifg=#404040
 hi SpecialKey  guifg=#aaaaff
 
 " VimDiff colors
-hi DiffAdd    term=bold                                   ctermbg=9  guibg=#ccffcc
-hi DiffDelete term=bold    ctermfg=9  gui=bold guifg=Blue ctermbg=11 guibg=#e8e8e8
-hi DiffChange term=bold                                   ctermbg=13 guibg=#ffd0d0
-hi DiffText   term=reverse cterm=bold gui=underline,bold  ctermbg=12 guibg=#ffc0c0
+"hi DiffAdd    term=bold                                   ctermbg=9  guibg=#ccffcc
+"hi DiffDelete term=bold    ctermfg=9  gui=bold guifg=Blue ctermbg=11 guibg=#e8e8e8
+"hi DiffChange term=bold                                   ctermbg=13 guibg=#ffd0d0
+"hi DiffText   term=reverse cterm=bold gui=underline,bold  ctermbg=12 guibg=#ffc0c0
 
 
 "------------------------------------------------------------
@@ -493,12 +496,12 @@ hi DiffText   term=reverse cterm=bold gui=underline,bold  ctermbg=12 guibg=#ffc0
 "  directories.
 
 " Run pathogen
-execute pathogen#infect()
+"execute pathogen#infect()
 
 " Pathogen plugin - solarized colors
-set t_Co=256
-let g:solarized_termcolors=256
-syntax enable
+"set t_Co=256
+"let g:solarized_termcolors=256
+"syntax enable
 "------------------------------------------------------------
 "" NERDTree {{{1
 "
